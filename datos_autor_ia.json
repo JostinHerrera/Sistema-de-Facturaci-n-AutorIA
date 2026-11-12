@@ -3,12 +3,12 @@
         "1": [
             "Chatbot B\u00e1sico",
             500.0,
-            15
+            9
         ],
         "2": [
             "Automatizaci\u00f3n de Emails",
             300.0,
-            10
+            9
         ],
         "3": [
             "Consultor\u00eda IA",
@@ -140,6 +140,106 @@
                 }
             ],
             "total": 1092.5
+        },
+        {
+            "fecha": "2026-11-12 10:16:23",
+            "cliente": "Matrix",
+            "cliente_id": "123-3455",
+            "items": [
+                {
+                    "id": "1",
+                    "nombre": "Chatbot B\u00e1sico",
+                    "precio": 500.0,
+                    "cantidad": 1,
+                    "subtotal": 500.0
+                }
+            ],
+            "total": 575.0
+        },
+        {
+            "fecha": "2026-11-12 10:25:10",
+            "cliente": "Matrix",
+            "cliente_id": "123-3455",
+            "items": [
+                {
+                    "id": "2",
+                    "nombre": "Automatizaci\u00f3n de Emails",
+                    "precio": 300.0,
+                    "cantidad": 1,
+                    "subtotal": 300.0
+                }
+            ],
+            "total": 345.0
+        },
+        {
+            "fecha": "2026-11-12 10:28:55",
+            "cliente": "Matrix",
+            "cliente_id": "123-3455",
+            "items": [
+                {
+                    "id": "1",
+                    "nombre": "Chatbot B\u00e1sico",
+                    "precio": 500.0,
+                    "cantidad": 1,
+                    "subtotal": 500.0
+                }
+            ],
+            "total": 575.0
+        },
+        {
+            "fecha": "2026-11-12 10:32:06",
+            "cliente": "Matrix",
+            "cliente_id": "123-3455",
+            "contacto": "Maria",
+            "items": [
+                {
+                    "id": "1",
+                    "nombre": "Chatbot B\u00e1sico",
+                    "precio": 500.0,
+                    "cantidad": 1,
+                    "subtotal": 500.0
+                }
+            ],
+            "total": 575.0
+        },
+        {
+            "fecha": "2026-11-12 10:34:43",
+            "cliente": "Matrix",
+            "cliente_id": "123-3455",
+            "contacto": "Juan",
+            "items": [
+                {
+                    "id": "1",
+                    "nombre": "Chatbot B\u00e1sico",
+                    "precio": 500.0,
+                    "cantidad": 1,
+                    "subtotal": 500.0
+                }
+            ],
+            "total": 575.0
+        },
+        {
+            "fecha": "2026-11-12 11:29:31",
+            "cliente": "Matrix",
+            "cliente_id": "123-3455",
+            "contacto": "Pedro Gonzales",
+            "items": [
+                {
+                    "id": "1",
+                    "nombre": "Chatbot B\u00e1sico",
+                    "precio": 500.0,
+                    "cantidad": 1,
+                    "subtotal": 500.0
+                },
+                {
+                    "id": "1",
+                    "nombre": "Chatbot B\u00e1sico",
+                    "precio": 500.0,
+                    "cantidad": 1,
+                    "subtotal": 500.0
+                }
+            ],
+            "total": 1150.0
         }
     ],
     "movimientos": [
@@ -240,6 +340,92 @@
             "nuevo": 15,
             "monto_debe": 1000.0,
             "monto_haber": 0
+        },
+        {
+            "fecha": "2026-11-12 10:16:23",
+            "id": "1",
+            "nombre": "Chatbot B\u00e1sico",
+            "tipo": "SALIDA (Venta)",
+            "cantidad": -1,
+            "prev": 15,
+            "nuevo": 14,
+            "monto_debe": 0,
+            "monto_haber": 500.0
+        },
+        {
+            "fecha": "2026-11-12 10:25:10",
+            "id": "2",
+            "nombre": "Automatizaci\u00f3n de Emails",
+            "tipo": "SALIDA (Venta)",
+            "cantidad": -1,
+            "prev": 10,
+            "nuevo": 9,
+            "monto_debe": 0,
+            "monto_haber": 300.0
+        },
+        {
+            "fecha": "2026-11-12 10:28:55",
+            "id": "1",
+            "nombre": "Chatbot B\u00e1sico",
+            "tipo": "SALIDA (Venta)",
+            "cantidad": -1,
+            "prev": 14,
+            "nuevo": 13,
+            "monto_debe": 0,
+            "monto_haber": 500.0
+        },
+        {
+            "fecha": "2026-11-12 10:32:06",
+            "id": "1",
+            "nombre": "Chatbot B\u00e1sico",
+            "tipo": "SALIDA (Venta)",
+            "cantidad": -1,
+            "prev": 13,
+            "nuevo": 12,
+            "monto_debe": 0,
+            "monto_haber": 500.0
+        },
+        {
+            "fecha": "2026-11-12 10:34:43",
+            "id": "1",
+            "nombre": "Chatbot B\u00e1sico",
+            "tipo": "SALIDA (Venta)",
+            "cantidad": -1,
+            "prev": 12,
+            "nuevo": 11,
+            "monto_debe": 0,
+            "monto_haber": 500.0
+        },
+        {
+            "fecha": "2026-11-12 11:29:31",
+            "id": "1",
+            "nombre": "Chatbot B\u00e1sico",
+            "tipo": "SALIDA (Venta)",
+            "cantidad": -1,
+            "prev": 11,
+            "nuevo": 10,
+            "monto_debe": 0,
+            "monto_haber": 500.0
+        },
+        {
+            "fecha": "2026-11-12 11:29:31",
+            "id": "1",
+            "nombre": "Chatbot B\u00e1sico",
+            "tipo": "SALIDA (Venta)",
+            "cantidad": -1,
+            "prev": 10,
+            "nuevo": 9,
+            "monto_debe": 0,
+            "monto_haber": 500.0
         }
-    ]
+    ],
+    "clientes": {
+        "123-3455": {
+            "empresa": "Matrix",
+            "contacto": "Juan Perez",
+            "correo": "matrix@gmail.com",
+            "telefono": "809-525-0344",
+            "direccion": "Av. Libertad"
+        }
+    }
 }
