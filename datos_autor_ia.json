@@ -1,0 +1,245 @@
+{
+    "inventario": {
+        "1": [
+            "Chatbot B\u00e1sico",
+            500.0,
+            15
+        ],
+        "2": [
+            "Automatizaci\u00f3n de Emails",
+            300.0,
+            10
+        ],
+        "3": [
+            "Consultor\u00eda IA",
+            150.0,
+            14
+        ],
+        "4": [
+            "Ejemplo",
+            10.0,
+            7
+        ]
+    },
+    "historial": [
+        {
+            "fecha": "2026-11-11 21:42:11",
+            "cliente": "Google",
+            "items": [
+                {
+                    "id": "1",
+                    "nombre": "Chatbot B\u00e1sico",
+                    "precio": 500.0,
+                    "cantidad": 1,
+                    "subtotal": 500.0
+                },
+                {
+                    "id": "2",
+                    "nombre": "Automatizaci\u00f3n de Emails",
+                    "precio": 300.0,
+                    "cantidad": 1,
+                    "subtotal": 300.0
+                }
+            ],
+            "total": 919.9999999999999
+        },
+        {
+            "fecha": "2026-11-11 21:47:19",
+            "cliente": "Facebook",
+            "items": [
+                {
+                    "id": "2",
+                    "nombre": "Automatizaci\u00f3n de Emails",
+                    "precio": 300.0,
+                    "cantidad": 1,
+                    "subtotal": 300.0
+                },
+                {
+                    "id": "1",
+                    "nombre": "Chatbot B\u00e1sico",
+                    "precio": 500.0,
+                    "cantidad": 5,
+                    "subtotal": 2500.0
+                },
+                {
+                    "id": "3",
+                    "nombre": "Consultor\u00eda IA",
+                    "precio": 150.0,
+                    "cantidad": 4,
+                    "subtotal": 600.0
+                }
+            ],
+            "total": 3909.9999999999995
+        },
+        {
+            "fecha": "2026-11-11 22:14:18",
+            "cliente": "Face",
+            "items": [
+                {
+                    "id": "1",
+                    "nombre": "Chatbot B\u00e1sico",
+                    "precio": 500.0,
+                    "cantidad": 1,
+                    "subtotal": 500.0
+                },
+                {
+                    "id": "2",
+                    "nombre": "Automatizaci\u00f3n de Emails",
+                    "precio": 300.0,
+                    "cantidad": 1,
+                    "subtotal": 300.0
+                }
+            ],
+            "total": 919.9999999999999
+        },
+        {
+            "fecha": "2026-11-11 22:15:51",
+            "cliente": "rd",
+            "items": [
+                {
+                    "id": "1",
+                    "nombre": "Chatbot B\u00e1sico",
+                    "precio": 500.0,
+                    "cantidad": 1,
+                    "subtotal": 500.0
+                },
+                {
+                    "id": "2",
+                    "nombre": "Automatizaci\u00f3n de Emails",
+                    "precio": 300.0,
+                    "cantidad": 1,
+                    "subtotal": 300.0
+                }
+            ],
+            "total": 919.9999999999999
+        },
+        {
+            "fecha": "2026-11-11 22:26:46",
+            "cliente": "Rf",
+            "items": [
+                {
+                    "id": "1",
+                    "nombre": "Chatbot B\u00e1sico",
+                    "precio": 500.0,
+                    "cantidad": 1,
+                    "subtotal": 500.0
+                },
+                {
+                    "id": "2",
+                    "nombre": "Automatizaci\u00f3n de Emails",
+                    "precio": 300.0,
+                    "cantidad": 1,
+                    "subtotal": 300.0
+                },
+                {
+                    "id": "3",
+                    "nombre": "Consultor\u00eda IA",
+                    "precio": 150.0,
+                    "cantidad": 1,
+                    "subtotal": 150.0
+                }
+            ],
+            "total": 1092.5
+        }
+    ],
+    "movimientos": [
+        {
+            "fecha": "2026-11-11 22:14:18",
+            "id": "1",
+            "nombre": "Chatbot B\u00e1sico",
+            "tipo": "SALIDA (Venta)",
+            "cantidad": -1,
+            "prev": 10,
+            "nuevo": 9
+        },
+        {
+            "fecha": "2026-11-11 22:14:18",
+            "id": "2",
+            "nombre": "Automatizaci\u00f3n de Emails",
+            "tipo": "SALIDA (Venta)",
+            "cantidad": -1,
+            "prev": 13,
+            "nuevo": 12
+        },
+        {
+            "fecha": "2026-11-11 22:14:53",
+            "id": "1",
+            "nombre": "Chatbot B\u00e1sico",
+            "tipo": "ENTRADA",
+            "cantidad": 6,
+            "prev": 9,
+            "nuevo": 15
+        },
+        {
+            "fecha": "2026-11-11 22:15:51",
+            "id": "1",
+            "nombre": "Chatbot B\u00e1sico",
+            "tipo": "SALIDA (Venta)",
+            "cantidad": -1,
+            "prev": 15,
+            "nuevo": 14
+        },
+        {
+            "fecha": "2026-11-11 22:15:51",
+            "id": "2",
+            "nombre": "Automatizaci\u00f3n de Emails",
+            "tipo": "SALIDA (Venta)",
+            "cantidad": -1,
+            "prev": 12,
+            "nuevo": 11
+        },
+        {
+            "fecha": "2026-11-11 22:16:36",
+            "id": "3",
+            "nombre": "Consultor\u00eda IA",
+            "tipo": "ENTRADA",
+            "cantidad": 5,
+            "prev": 10,
+            "nuevo": 15
+        },
+        {
+            "fecha": "2026-11-11 22:26:46",
+            "id": "1",
+            "nombre": "Chatbot B\u00e1sico",
+            "tipo": "SALIDA (Venta)",
+            "cantidad": -1,
+            "prev": 14,
+            "nuevo": 13,
+            "monto_debe": 0,
+            "monto_haber": 500.0
+        },
+        {
+            "fecha": "2026-11-11 22:26:46",
+            "id": "2",
+            "nombre": "Automatizaci\u00f3n de Emails",
+            "tipo": "SALIDA (Venta)",
+            "cantidad": -1,
+            "prev": 11,
+            "nuevo": 10,
+            "monto_debe": 0,
+            "monto_haber": 300.0
+        },
+        {
+            "fecha": "2026-11-11 22:26:46",
+            "id": "3",
+            "nombre": "Consultor\u00eda IA",
+            "tipo": "SALIDA (Venta)",
+            "cantidad": -1,
+            "prev": 15,
+            "nuevo": 14,
+            "monto_debe": 0,
+            "monto_haber": 150.0
+        },
+        {
+            "fecha": "2026-11-11 22:27:28",
+            "id": "1",
+            "nombre": "Chatbot B\u00e1sico",
+            "tipo": "ENTRADA",
+            "cantidad": 2,
+            "prev": 13,
+            "nuevo": 15,
+            "monto_debe": 1000.0,
+            "monto_haber": 0
+        }
+    ]
+}
