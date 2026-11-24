@@ -11,6 +11,7 @@ class SistemaAutorIA:
         self.root.geometry("900x650")
 
         self.archivo_datos = "datos_autor_ia.json"
+        self.id_inventario_seleccionado = None
         self.cargar_datos()
 
         # Configuración de estilos
@@ -86,6 +87,8 @@ class SistemaAutorIA:
                     self.historial = datos.get("historial", [])
                     self.movimientos = datos.get("movimientos", [])
                     self.clientes = datos.get("clientes", {})
+                    # Cargar recursos de IA si existen
+                    self.recursos_ia = datos.get("recursos_ia", {})
             except Exception as e:
                 print(f"Error al cargar datos: {e}")
                 self.inicializar_predeterminado()
@@ -94,9 +97,65 @@ class SistemaAutorIA:
 
     def inicializar_predeterminado(self):
         self.inventario = {
-            "1": ["Chatbot Básico", 500.0, 10],
-            "2": ["Automatización de Emails", 300.0, 15],
-            "3": ["Consultoría IA", 150.0, 5]
+            "1": ["Chatbot Básico (FAQ / Reglas)", 500.0, 10],
+            "2": ["Chatbot IA Conversacional RAG (WhatsApp/Web)", 1200.0, 8],
+            "3": ["Agente IA Multicanal 24/7 (Ventas/Soporte)", 2500.0, 5],
+            "4": ["Automatización de Emails y Workflows", 400.0, 15],
+            "5": ["Procesamiento Inteligente de Documentos (OCR + IA)", 1500.0, 6],
+            "6": ["Automatización CRM & Lead Pipeline", 800.0, 10],
+            "7": ["Integración API LLM (OpenAI / Anthropic)", 900.0, 12],
+            "8": ["Base de Datos Vectorial & RAG Empresarial", 1800.0, 5],
+            "9": ["Desarrollo de Webhooks y APIs a Medida", 750.0, 15],
+            "10": ["Consultoría & Auditoría de IA (Bolsa de Horas)", 300.0, 20],
+            "11": ["Soporte & Mantenimiento Mensual de Agentes IA", 450.0, 25]
+        }
+        self.recursos_ia = {
+            "API1": {
+                "nombre": "OpenAI API - GPT-4",
+                "tipo": "API",
+                "saldo_disponible": 1000000,
+                "saldo_inicial": 1000000,
+                "costo_unitario": 0.03,
+                "fecha_ultima_carga": "2026-11-01"
+            },
+            "API2": {
+                "nombre": "Anthropic Claude API",
+                "tipo": "API",
+                "saldo_disponible": 500000,
+                "saldo_inicial": 500000,
+                "costo_unitario": 0.015,
+                "fecha_ultima_carga": "2026-11-01"
+            },
+            "LIC1": {
+                "nombre": "Figma Pro - Diseño UI/UX",
+                "tipo": "Licencia",
+                "cantidad": 3,
+                "costo_unitario": 45.0,
+                "vencimiento": "2026-12-31"
+            },
+            "SUS1": {
+                "nombre": "GitHub Enterprise - Repositorios",
+                "tipo": "Suscripción",
+                "precio": 21.0,
+                "periodicidad": "Mensual",
+                "proxima_renovacion": "2026-12-15",
+                "estado": "Activa"
+            },
+            "SUS2": {
+                "nombre": "AWS - Servidores Cloud",
+                "tipo": "Suscripción",
+                "precio": 200.0,
+                "periodicidad": "Mensual",
+                "proxima_renovacion": "2026-11-25",
+                "estado": "Activa"
+            },
+            "EQUIPO1": {
+                "nombre": "Laptop MacBook Pro M3",
+                "tipo": "Equipo",
+                "unidades": 5,
+                "costo_unitario": 2500.0,
+                "estado": "Activo"
+            }
         }
         self.historial = []
         self.movimientos = []
@@ -109,7 +168,8 @@ class SistemaAutorIA:
             "inventario": self.inventario,
             "historial": self.historial,
             "movimientos": self.movimientos,
-            "clientes": self.clientes
+            "clientes": self.clientes,
+            "recursos_ia": self.recursos_ia
         }
         try:
             with open(self.archivo_datos, 'w', encoding='utf-8') as f:
@@ -297,21 +357,20 @@ class SistemaAutorIA:
         frame_form = ttk.LabelFrame(self.tab_inventario, text="Producto / Servicio", padding=10)
         frame_form.pack(side="top", fill="x", padx=10, pady=10)
 
-        ttk.Label(frame_form, text="ID:").grid(row=0, column=0, padx=5, pady=2, sticky="w")
-        self.entry_inv_id = ttk.Entry(frame_form, width=10)
-        self.entry_inv_id.grid(row=0, column=1, padx=5, pady=2, sticky="w")
-
-        ttk.Label(frame_form, text="Nombre:").grid(row=0, column=2, padx=5, pady=2, sticky="w")
+        # Nombre
+        ttk.Label(frame_form, text="Nombre:").grid(row=0, column=0, padx=5, pady=2, sticky="w")
         self.entry_inv_nombre = ttk.Entry(frame_form, width=30)
-        self.entry_inv_nombre.grid(row=0, column=3, padx=5, pady=2, sticky="w")
+        self.entry_inv_nombre.grid(row=0, column=1, padx=5, pady=2, sticky="w")
 
-        ttk.Label(frame_form, text="Precio:").grid(row=1, column=0, padx=5, pady=2, sticky="w")
+        # Precio
+        ttk.Label(frame_form, text="Precio:").grid(row=0, column=2, padx=5, pady=2, sticky="w")
         self.entry_inv_precio = ttk.Entry(frame_form, width=10)
-        self.entry_inv_precio.grid(row=1, column=1, padx=5, pady=2, sticky="w")
+        self.entry_inv_precio.grid(row=0, column=3, padx=5, pady=2, sticky="w")
 
-        ttk.Label(frame_form, text="Stock:").grid(row=1, column=2, padx=5, pady=2, sticky="w")
+        # Stock
+        ttk.Label(frame_form, text="Stock:").grid(row=1, column=0, padx=5, pady=2, sticky="w")
         self.entry_inv_stock = ttk.Entry(frame_form, width=10)
-        self.entry_inv_stock.grid(row=1, column=3, padx=5, pady=2, sticky="w")
+        self.entry_inv_stock.grid(row=1, column=1, padx=5, pady=2, sticky="w")
 
         # Botones de acción para inventario
         frame_btns_inv = ttk.Frame(frame_form)
@@ -321,10 +380,17 @@ class SistemaAutorIA:
         ttk.Button(frame_btns_inv, text="Eliminar Seleccionado", command=self.eliminar_producto_inventario).pack(side="left", padx=5)
         ttk.Button(frame_btns_inv, text="Limpiar Formulario", command=self.limpiar_form_inventario).pack(side="left", padx=5)
 
-        # Resumen de Valor de Inventario
-        self.lbl_valor_inv_var = tk.StringVar(value="Valor Total del Inventario: $0.00")
-        lbl_valor_inv = ttk.Label(self.tab_inventario, textvariable=self.lbl_valor_inv_var, font=('Helvetica', 10, 'bold'), foreground="blue")
-        lbl_valor_inv.pack(pady=5)
+        # Frame de Búsqueda
+        frame_busqueda = ttk.Frame(self.tab_inventario)
+        frame_busqueda.pack(fill="x", padx=10, pady=5)
+        ttk.Label(frame_busqueda, text="Buscar (Nombre o ID):").pack(side="left", padx=5)
+        self.entry_busqueda_inv = ttk.Entry(frame_busqueda, width=30)
+        self.entry_busqueda_inv.pack(side="left", padx=5)
+        self.entry_busqueda_inv.bind("<KeyRelease>", lambda e: self.actualizar_tabla_inventario())
+
+        # Ordenamiento
+        self.orden_inventario = "id" # "id" o "nombre"
+        ttk.Button(frame_busqueda, text="Alternar Orden (ID/Nombre)", command=self.alternar_orden_inventario).pack(side="left", padx=10)
 
         # Tabla de inventario
         self.tree_inventario = ttk.Treeview(self.tab_inventario, columns=("id", "nombre", "precio", "stock", "valor_total"), show="headings")
@@ -341,16 +407,41 @@ class SistemaAutorIA:
         self.tree_inventario.column("valor_total", width=120)
         self.tree_inventario.pack(fill="both", expand=True, padx=10, pady=5)
 
+        # Resumen de Valor de Inventario (debajo de la tabla, a la derecha)
+        frame_resumen_inv = ttk.Frame(self.tab_inventario)
+        frame_resumen_inv.pack(fill="x", padx=10, pady=5)
+        self.lbl_valor_inv_var = tk.StringVar(value="Valor Total del Inventario: $0.00")
+        lbl_valor_inv = ttk.Label(frame_resumen_inv, textvariable=self.lbl_valor_inv_var, font=('Helvetica', 10, 'bold'), foreground="blue")
+        lbl_valor_inv.pack(side="right", padx=5)
+
         self.tree_inventario.bind("<<TreeviewSelect>>", self.cargar_producto_seleccionado)
+        self.actualizar_tabla_inventario()
+
+    def alternar_orden_inventario(self):
+        self.orden_inventario = "nombre" if self.orden_inventario == "id" else "id"
         self.actualizar_tabla_inventario()
 
     def actualizar_tabla_inventario(self):
         for item in self.tree_inventario.get_children():
             self.tree_inventario.delete(item)
 
+        busqueda = self.entry_busqueda_inv.get().lower() if hasattr(self, 'entry_busqueda_inv') else ""
         valor_acumulado = 0
-        for id_item, datos in sorted(self.inventario.items()):
+
+        # Crear lista para ordenar
+        lista_items = list(self.inventario.items())
+        if self.orden_inventario == "id":
+            lista_items.sort(key=lambda x: int(x[0]) if x[0].isdigit() else 0)
+        else:
+            lista_items.sort(key=lambda x: x[1][0].lower())
+
+        for id_item, datos in lista_items:
             nombre, precio, stock = datos
+
+            # Filtrado
+            if busqueda and (busqueda not in str(id_item).lower() and busqueda not in nombre.lower()):
+                continue
+
             total_producto = precio * stock
             valor_acumulado += total_producto
             self.tree_inventario.insert("", "end", values=(id_item, nombre, f"${precio:.2f}", stock, f"${total_producto:.2f}"))
@@ -364,42 +455,53 @@ class SistemaAutorIA:
 
         item_data = self.tree_inventario.item(seleccion[0], 'values')
         self.limpiar_form_inventario()
-        self.entry_inv_id.insert(0, item_data[0])
+        # El ID se maneja internamente, no en el formulario directamente
+        self.id_inventario_seleccionado = item_data[0]
         self.entry_inv_nombre.insert(0, item_data[1])
         self.entry_inv_precio.insert(0, item_data[2].replace('$', ''))
         self.entry_inv_stock.insert(0, item_data[3])
-        # Bloquear edición de ID si se va a actualizar? No, pero suele ser mejor así.
 
     def limpiar_form_inventario(self):
-        self.entry_inv_id.delete(0, tk.END)
+        self.id_inventario_seleccionado = None
         self.entry_inv_nombre.delete(0, tk.END)
         self.entry_inv_precio.delete(0, tk.END)
         self.entry_inv_stock.delete(0, tk.END)
 
     def guardar_producto_inventario(self):
-        idx = self.entry_inv_id.get().strip()
         nombre = self.entry_inv_nombre.get().strip()
         try:
-            precio = float(self.entry_inv_precio.get().strip())
-            stock = int(self.entry_inv_stock.get().strip())
+            precio_val = self.entry_inv_precio.get().strip()
+            stock_val = self.entry_inv_stock.get().strip()
+            if not precio_val or not stock_val:
+                messagebox.showerror("Error", "Precio y Stock son obligatorios.")
+                return
+            precio = float(precio_val)
+            stock = int(stock_val)
         except ValueError:
             messagebox.showerror("Error", "Precio y Stock deben ser números válidos.")
             return
 
-        if not idx or not nombre:
-            messagebox.showerror("Error", "ID y Nombre son obligatorios.")
+        if not nombre:
+            messagebox.showerror("Error", "El nombre es obligatorio.")
             return
 
-        # Registrar si es un ajuste de stock o entrada
+        idx = getattr(self, 'id_inventario_seleccionado', None)
         tipo_mov = "AJUSTE"
         stock_anterior = 0
-        if idx in self.inventario:
+
+        if idx and idx in self.inventario:
             stock_anterior = self.inventario[idx][2]
             diferencia = stock - stock_anterior
-            if diferencia > 0: tipo_mov = "ENTRADA"
-            elif diferencia < 0: tipo_mov = "AJUSTE/SALIDA"
+            if diferencia > 0:
+                tipo_mov = "ENTRADA"
+            elif diferencia < 0:
+                tipo_mov = "AJUSTE/SALIDA"
+            else:
+                tipo_mov = "ACTUALIZACIÓN"
             cant_mov = diferencia
         else:
+            ids_existentes = [int(i) for i in self.inventario.keys() if i.isdigit()]
+            idx = str(max(ids_existentes + [0]) + 1)
             tipo_mov = "ALTA INICIAL"
             cant_mov = stock
 
@@ -410,7 +512,7 @@ class SistemaAutorIA:
         self.guardar_datos()
         self.actualizar_tabla_inventario()
         self.limpiar_form_inventario()
-        messagebox.showinfo("Éxito", "Producto guardado correctamente.")
+        messagebox.showinfo("Éxito", f"Producto '{nombre}' (ID: {idx}) guardado correctamente.")
 
     def eliminar_producto_inventario(self):
         seleccion = self.tree_inventario.selection()
@@ -536,14 +638,14 @@ class SistemaAutorIA:
         lbl_total.pack(pady=10)
 
     def configurar_pestaña_movimientos(self):
-        self.tree_movimientos = ttk.Treeview(self.tab_movimientos, columns=("fecha", "prod", "tipo", "cant", "debe", "haber", "nuevo"), show="headings")
+        self.tree_movimientos = ttk.Treeview(self.tab_movimientos, columns=("fecha", "prod", "tipo", "cant", "debe", "haber", "inventario"), show="headings")
         self.tree_movimientos.heading("fecha", text="Fecha")
         self.tree_movimientos.heading("prod", text="Producto")
         self.tree_movimientos.heading("tipo", text="Tipo")
         self.tree_movimientos.heading("cant", text="Cant.")
         self.tree_movimientos.heading("debe", text="Debe (+)")
         self.tree_movimientos.heading("haber", text="Haber (-)")
-        self.tree_movimientos.heading("nuevo", text="S. Final")
+        self.tree_movimientos.heading("inventario", text="Inventario")
 
         self.tree_movimientos.column("fecha", width=130)
         self.tree_movimientos.column("prod", width=150)
@@ -551,11 +653,16 @@ class SistemaAutorIA:
         self.tree_movimientos.column("cant", width=50)
         self.tree_movimientos.column("debe", width=90)
         self.tree_movimientos.column("haber", width=90)
-        self.tree_movimientos.column("nuevo", width=70)
+        self.tree_movimientos.column("inventario", width=90)
 
         # Colores para Deber y Haber
         self.tree_movimientos.tag_configure('entrada', foreground='green')
         self.tree_movimientos.tag_configure('salida', foreground='red')
+
+        # Configurar estilo para todas las columnas menos debe y haber
+        style = ttk.Style()
+        style.configure("Treeview", foreground='black')
+        style.configure("Treeview.Heading", foreground='black')
 
         scroll = ttk.Scrollbar(self.tab_movimientos, orient="vertical", command=self.tree_movimientos.yview)
         self.tree_movimientos.configure(yscrollcommand=scroll.set)
@@ -573,6 +680,7 @@ class SistemaAutorIA:
             debe = f"${mov.get('monto_debe', 0):.2f}" if mov.get('monto_debe', 0) > 0 else "-"
             haber = f"${mov.get('monto_haber', 0):.2f}" if mov.get('monto_haber', 0) > 0 else "-"
 
+            # Determinar el tag para el color de la fila
             tag = ''
             if mov.get('monto_debe', 0) > 0: tag = 'entrada'
             if mov.get('monto_haber', 0) > 0: tag = 'salida'
@@ -629,7 +737,12 @@ class SistemaAutorIA:
 
         ttk.Label(frame_form, text="Dirección:").grid(row=2, column=0, padx=5, pady=2, sticky="w")
         self.entry_cli_direccion = ttk.Entry(frame_form, width=50)
-        self.entry_cli_direccion.grid(row=2, column=1, columnspan=3, padx=5, pady=2, sticky="w")
+        self.entry_cli_direccion.grid(row=2, column=1, columnspan=2, padx=5, pady=2, sticky="w")
+
+        ttk.Label(frame_form, text="Estado:").grid(row=2, column=3, padx=5, pady=2, sticky="w")
+        self.combo_cli_estado = ttk.Combobox(frame_form, values=["Activa", "Pendiente", "No aplica"], state="readonly", width=15)
+        self.combo_cli_estado.grid(row=2, column=3, padx=55, pady=2, sticky="w")
+        self.combo_cli_estado.set("Activa")
 
         # Botones de acción para clientes
         frame_btns_cli = ttk.Frame(frame_form)
@@ -640,35 +753,61 @@ class SistemaAutorIA:
         ttk.Button(frame_btns_cli, text="Limpiar Formulario", command=self.limpiar_form_cliente).pack(side="left", padx=5)
 
         # Tabla de clientes
-        self.tree_clientes = ttk.Treeview(self.tab_clientes, columns=("id", "empresa", "correo", "telefono", "direccion"), show="headings")
+        self.tree_clientes = ttk.Treeview(self.tab_clientes, columns=("id", "empresa", "correo", "telefono", "direccion", "estado"), show="headings")
         self.tree_clientes.heading("id", text="ID Fiscal")
         self.tree_clientes.heading("empresa", text="Empresa")
         self.tree_clientes.heading("correo", text="Correo")
         self.tree_clientes.heading("telefono", text="Teléfono")
         self.tree_clientes.heading("direccion", text="Dirección")
+        self.tree_clientes.heading("estado", text="Estado")
 
-        self.tree_clientes.column("id", width=100)
-        self.tree_clientes.column("empresa", width=180)
-        self.tree_clientes.column("correo", width=150)
-        self.tree_clientes.column("telefono", width=100)
-        self.tree_clientes.column("direccion", width=220)
+        self.tree_clientes.column("id", width=80)
+        self.tree_clientes.column("empresa", width=150)
+        self.tree_clientes.column("correo", width=120)
+        self.tree_clientes.column("telefono", width=90)
+        self.tree_clientes.column("direccion", width=150)
+        self.tree_clientes.column("estado", width=80)
         self.tree_clientes.pack(fill="both", expand=True, padx=10, pady=5)
 
         self.tree_clientes.bind("<<TreeviewSelect>>", self.cargar_cliente_seleccionado)
         self.actualizar_tabla_clientes()
+
+    def calcular_estado_automatico(self, id_cliente):
+        """Calcula el estado del cliente según su última compra."""
+        ventas_cliente = [v for v in self.historial if v.get('cliente_id') == id_cliente]
+
+        if not ventas_cliente:
+            return "No aplica"
+
+        # Obtener fecha de la última compra
+        ultima_venta = max([datetime.strptime(v['fecha'], "%Y-%m-%d %H:%M:%S") for v in ventas_cliente])
+        dias_desde_compra = (datetime.now() - ultima_venta).days
+
+        if dias_desde_compra <= 30:
+            return "Activa"
+        elif dias_desde_compra <= 60: # Asumimos "cerca de 30 días" como el rango para pendiente
+            return "Pendiente"
+        else:
+            return "No aplica"
 
     def actualizar_tabla_clientes(self):
         for item in self.tree_clientes.get_children():
             self.tree_clientes.delete(item)
 
         for id_fiscal, datos in sorted(self.clientes.items()):
+            # Actualizar estado automáticamente
+            nuevo_estado = self.calcular_estado_automatico(id_fiscal)
+            datos['estado'] = nuevo_estado
+
             self.tree_clientes.insert("", "end", values=(
                 id_fiscal,
                 datos.get('empresa', ''),
                 datos.get('correo', ''),
                 datos.get('telefono', ''),
-                datos.get('direccion', '')
+                datos.get('direccion', ''),
+                nuevo_estado
             ))
+        self.guardar_datos()
         self.actualizar_combo_clientes()
 
     def actualizar_combo_clientes(self):
@@ -692,6 +831,7 @@ class SistemaAutorIA:
         self.entry_cli_correo.insert(0, datos.get('correo', ''))
         self.entry_cli_telefono.insert(0, datos.get('telefono', ''))
         self.entry_cli_direccion.insert(0, datos.get('direccion', ''))
+        self.combo_cli_estado.set(datos.get('estado', 'Activa'))
 
     def limpiar_form_cliente(self):
         self.entry_cli_id.delete(0, tk.END)
@@ -699,6 +839,7 @@ class SistemaAutorIA:
         self.entry_cli_correo.delete(0, tk.END)
         self.entry_cli_telefono.delete(0, tk.END)
         self.entry_cli_direccion.delete(0, tk.END)
+        self.combo_cli_estado.set("Activa")
 
     def guardar_cliente(self):
         id_fiscal = self.entry_cli_id.get().strip()
@@ -706,6 +847,7 @@ class SistemaAutorIA:
         correo = self.entry_cli_correo.get().strip()
         telefono = self.entry_cli_telefono.get().strip()
         direccion = self.entry_cli_direccion.get().strip()
+        estado = self.combo_cli_estado.get()
 
         if not id_fiscal or not empresa:
             messagebox.showerror("Error", "ID Fiscal y Nombre de Empresa son obligatorios.")
@@ -715,7 +857,8 @@ class SistemaAutorIA:
             "empresa": empresa,
             "correo": correo,
             "telefono": telefono,
-            "direccion": direccion
+            "direccion": direccion,
+            "estado": estado
         }
         self.guardar_datos()
         self.actualizar_tabla_clientes()
