@@ -1,23 +1,68 @@
 {
     "inventario": {
         "1": [
-            "Chatbot B\u00e1sico",
+            "Chatbot B\u00e1sico (FAQ / Reglas)",
             500.0,
             9
         ],
         "2": [
-            "Automatizaci\u00f3n de Emails",
-            300.0,
-            9
+            "Chatbot IA Conversacional RAG (WhatsApp/Web)",
+            1200.0,
+            8
         ],
         "3": [
-            "Consultor\u00eda IA",
-            150.0,
-            14
+            "Agente IA Multicanal 24/7 (Ventas/Soporte)",
+            2500.0,
+            5
         ],
         "4": [
-            "Ejemplo",
-            10.0,
+            "Automatizaci\u00f3n de Emails y Workflows",
+            400.0,
+            15
+        ],
+        "5": [
+            "Procesamiento Inteligente de Documentos (OCR + IA)",
+            1500.0,
+            5
+        ],
+        "6": [
+            "Automatizaci\u00f3n CRM & Lead Pipeline",
+            800.0,
+            10
+        ],
+        "7": [
+            "Integraci\u00f3n API LLM (OpenAI / Anthropic)",
+            900.0,
+            12
+        ],
+        "8": [
+            "Base de Datos Vectorial & RAG Empresarial",
+            1800.0,
+            3
+        ],
+        "9": [
+            "Desarrollo de Webhooks y APIs a Medida",
+            750.0,
+            15
+        ],
+        "10": [
+            "Consultor\u00eda & Auditor\u00eda de IA (Bolsa de Horas)",
+            300.0,
+            20
+        ],
+        "11": [
+            "Soporte & Mantenimiento Mensual de Agentes IA",
+            450.0,
+            25
+        ],
+        "12": [
+            "prueba",
+            100.0,
+            10
+        ],
+        "13": [
+            "Intento",
+            125.0,
             7
         ]
     },
@@ -240,6 +285,38 @@
                 }
             ],
             "total": 1150.0
+        },
+        {
+            "fecha": "2026-11-20 12:18:48",
+            "cliente": "Matrix",
+            "cliente_id": "123-3455",
+            "contacto": "frank feli",
+            "items": [
+                {
+                    "id": "5",
+                    "nombre": "Procesamiento Inteligente de Documentos (OCR + IA)",
+                    "precio": 1500.0,
+                    "cantidad": 1,
+                    "subtotal": 1500.0
+                }
+            ],
+            "total": 1724.9999999999998
+        },
+        {
+            "fecha": "2026-11-23 21:33:42",
+            "cliente": "Ozan",
+            "cliente_id": "234-5211",
+            "contacto": "",
+            "items": [
+                {
+                    "id": "1",
+                    "nombre": "Chatbot B\u00e1sico (FAQ / Reglas)",
+                    "precio": 500.0,
+                    "cantidad": 1,
+                    "subtotal": 500.0
+                }
+            ],
+            "total": 575.0
         }
     ],
     "movimientos": [
@@ -417,6 +494,182 @@
             "nuevo": 9,
             "monto_debe": 0,
             "monto_haber": 500.0
+        },
+        {
+            "fecha": "2026-11-13 16:07:11",
+            "id": "4",
+            "nombre": "Ejemplo",
+            "tipo": "AJUSTE/SALIDA",
+            "cantidad": -5,
+            "prev": 7,
+            "nuevo": 2,
+            "monto_debe": 0,
+            "monto_haber": 50.0
+        },
+        {
+            "fecha": "2026-11-13 16:07:26",
+            "id": "4",
+            "nombre": "Ejemplo",
+            "tipo": "ENTRADA",
+            "cantidad": 26,
+            "prev": 2,
+            "nuevo": 28,
+            "monto_debe": 260.0,
+            "monto_haber": 0
+        },
+        {
+            "fecha": "2026-11-13 16:07:33",
+            "id": "4",
+            "nombre": "Ejemplo",
+            "tipo": "AJUSTE/SALIDA",
+            "cantidad": -11,
+            "prev": 28,
+            "nuevo": 17,
+            "monto_debe": 0,
+            "monto_haber": 110.0
+        },
+        {
+            "fecha": "2026-11-13 16:07:57",
+            "id": "4",
+            "nombre": "Ejemplo",
+            "tipo": "AJUSTE/SALIDA",
+            "cantidad": -14,
+            "prev": 17,
+            "nuevo": 3,
+            "monto_debe": 0,
+            "monto_haber": 140.0
+        },
+        {
+            "fecha": "2026-11-13 16:10:50",
+            "id": "4",
+            "nombre": "Ejemplo",
+            "tipo": "ENTRADA",
+            "cantidad": 1,
+            "prev": 3,
+            "nuevo": 4,
+            "monto_debe": 10.0,
+            "monto_haber": 0
+        },
+        {
+            "fecha": "2026-11-13 16:15:13",
+            "id": "5",
+            "nombre": "Prueba 2",
+            "tipo": "ALTA INICIAL",
+            "cantidad": 4,
+            "prev": 0,
+            "nuevo": 4,
+            "monto_debe": 200.0,
+            "monto_haber": 0
+        },
+        {
+            "fecha": "2026-11-13 16:23:12",
+            "id": "5",
+            "nombre": "Prueba 2",
+            "tipo": "AJUSTE/SALIDA",
+            "cantidad": -2,
+            "prev": 4,
+            "nuevo": 2,
+            "monto_debe": 0,
+            "monto_haber": 100.0
+        },
+        {
+            "fecha": "2026-11-17 12:28:53",
+            "id": "6",
+            "nombre": "Prueba 3",
+            "tipo": "ALTA INICIAL",
+            "cantidad": 5,
+            "prev": 0,
+            "nuevo": 5,
+            "monto_debe": 615.0,
+            "monto_haber": 0
+        },
+        {
+            "fecha": "2026-11-17 12:32:08",
+            "id": "7",
+            "nombre": "Prueba 4",
+            "tipo": "ALTA INICIAL",
+            "cantidad": 15,
+            "prev": 0,
+            "nuevo": 15,
+            "monto_debe": 375.0,
+            "monto_haber": 0
+        },
+        {
+            "fecha": "2026-11-17 12:32:21",
+            "id": "7",
+            "nombre": "Prueba 4",
+            "tipo": "ENTRADA",
+            "cantidad": 15,
+            "prev": 15,
+            "nuevo": 30,
+            "monto_debe": 375.0,
+            "monto_haber": 0
+        },
+        {
+            "fecha": "2026-11-20 12:18:48",
+            "id": "5",
+            "nombre": "Procesamiento Inteligente de Documentos (OCR + IA)",
+            "tipo": "SALIDA (Venta)",
+            "cantidad": -1,
+            "prev": 6,
+            "nuevo": 5,
+            "monto_debe": 0,
+            "monto_haber": 1500.0
+        },
+        {
+            "fecha": "2026-11-20 18:02:23",
+            "id": "8",
+            "nombre": "Base de Datos Vectorial & RAG Empresarial",
+            "tipo": "ENTRADA",
+            "cantidad": 2,
+            "prev": 5,
+            "nuevo": 7,
+            "monto_debe": 3600.0,
+            "monto_haber": 0
+        },
+        {
+            "fecha": "2026-11-20 18:33:22",
+            "id": "8",
+            "nombre": "Base de Datos Vectorial & RAG Empresarial",
+            "tipo": "AJUSTE/SALIDA",
+            "cantidad": -4,
+            "prev": 7,
+            "nuevo": 3,
+            "monto_debe": 0,
+            "monto_haber": 7200.0
+        },
+        {
+            "fecha": "2026-11-23 08:34:03",
+            "id": "12",
+            "nombre": "prueba",
+            "tipo": "ALTA INICIAL",
+            "cantidad": 10,
+            "prev": 0,
+            "nuevo": 10,
+            "monto_debe": 1000.0,
+            "monto_haber": 0
+        },
+        {
+            "fecha": "2026-11-23 10:25:27",
+            "id": "13",
+            "nombre": "Intento",
+            "tipo": "ALTA INICIAL",
+            "cantidad": 7,
+            "prev": 0,
+            "nuevo": 7,
+            "monto_debe": 875.0,
+            "monto_haber": 0
+        },
+        {
+            "fecha": "2026-11-23 21:33:42",
+            "id": "1",
+            "nombre": "Chatbot B\u00e1sico (FAQ / Reglas)",
+            "tipo": "SALIDA (Venta)",
+            "cantidad": -1,
+            "prev": 10,
+            "nuevo": 9,
+            "monto_debe": 0,
+            "monto_haber": 500.0
         }
     ],
     "clientes": {
@@ -425,7 +678,16 @@
             "contacto": "Juan Perez",
             "correo": "matrix@gmail.com",
             "telefono": "809-525-0344",
-            "direccion": "Av. Libertad"
+            "direccion": "Av. Libertad",
+            "estado": "Activa"
+        },
+        "234-5211": {
+            "empresa": "Ozan",
+            "correo": "ozan@gmail.com",
+            "telefono": "829-234-9320",
+            "direccion": "Av. Duarte",
+            "estado": "Activa"
         }
-    }
+    },
+    "recursos_ia": {}
 }
